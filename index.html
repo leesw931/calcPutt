@@ -41,10 +41,11 @@
     }
     .result {
       margin-top: 25px;
-      font-size: 18px;
+      font-size: 20px;
       background: #f3f3f3;
-      padding: 15px;
+      padding: 20px;
       border-radius: 6px;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -88,8 +89,8 @@
       const downhill = ((distance - height * 2) * 0.7).toFixed(2);
 
       document.getElementById("result").innerHTML = `
-        📏 평지: ${flat} m<br><p>
-        ⛰️ 오르막: ${uphill} m<br><p>
+        📏 평지: ${flat} m<br><br>
+        ⛰️ 오르막: ${uphill} m<br><br>
         ⬇️ 내리막: ${downhill} m
       `;
     }
