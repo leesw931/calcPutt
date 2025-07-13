@@ -74,9 +74,9 @@
 
   <div class="made-by">Made by 존람</div>
 
-  <script>
+ <script>
     const distanceSelect = document.getElementById("distanceSelect");
-    for (let i = 1.0; i <= 30.0; i += 0.5) {
+    for (let i = 0.0; i <= 30.0; i += 0.5) {
       const option = document.createElement("option");
       option.value = i.toFixed(1);
       option.text = `${i.toFixed(1)} m`;
@@ -84,7 +84,7 @@
     }
 
     const heightSelect = document.getElementById("heightSelect");
-    for (let i = 0.0; i <= 3.0; i += 0.1) {
+    for (let i = 0.0; i <= 5.0; i += 0.1) {
       const option = document.createElement("option");
       option.value = i.toFixed(1);
       option.text = `${i.toFixed(1)} m`;
@@ -94,16 +94,22 @@
     function calculate() {
       const distance = parseFloat(distanceSelect.value);
       const height = parseFloat(heightSelect.value);
+      let resultHTML = "";
 
+      if (height == 0) {
       const flat = (distance * 0.7).toFixed(2);
-      const uphill = ((distance + height * 1.5) * 0.7).toFixed(2);
-      const downhill = ((distance - height * 2) * 0.7).toFixed(2);
+      resultHTML += `📏 평지: ${flat} m<br><br>`;
+      }
+      
+      if (height > 0) {
+        const uphill = ((distance + height * 1.5) * 0.7).toFixed(2);
+        const downhill = ((distance - height * 2) * 0.7).toFixed(2);
 
-      document.getElementById("result").innerHTML = `
-        📏 평지: ${flat} m<br><br>
-        ⛰️ 오르막: ${uphill} m<br><br>
-        ⬇️ 내리막: ${downhill} m
-      `;
+        resultHTML += `⛰️ 오르막: ${uphill} m<br><br>`;
+        resultHTML += `⬇️ 내리막: ${downhill} m`;
+      }
+
+      document.getElementById("result").innerHTML = resultHTML;
     }
   </script>
 </body>
