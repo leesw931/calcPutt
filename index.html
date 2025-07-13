@@ -46,8 +46,29 @@
       border: none;
       border-radius: 6px;
     }
+    .button-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    .button-wrapper button {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      position: relative;
+      z-index: 1;
+    }
+    
     .tooltip-icon {
-      margin-left: 10px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
       background-color: #eee;
       color: #333;
       border-radius: 50%;
@@ -58,12 +79,14 @@
       font-weight: bold;
       cursor: pointer;
       font-size: 18px;
+      z-index: 2;
     }
+    
     .tooltip-box {
       display: none;
       position: absolute;
-      top: -10px;
-      right: -10px;
+      top: -110px;
+      right: 0;
       background-color: #f9f9f9;
       border: 1px solid #ccc;
       padding: 12px;
@@ -71,7 +94,7 @@
       line-height: 1.6;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10;
+      z-index: 3;
       white-space: pre-line;
       width: 100%;
     }
@@ -104,19 +127,19 @@
   <label for="heightSelect">높낮이 (m):</label>
   <select id="heightSelect"></select>
 
-  <div class="button-container">
+  <div class="button-wrapper">
     <button onclick="calculate()">계산하기</button>
-    <div class="tooltip-icon" onclick="toggleTooltip()">?</div>
+  <div class="tooltip-icon" onclick="toggleTooltip()">?</div>
     <div id="tooltip" class="tooltip-box">
-      평지 = 남은거리 * 0.7<br>
-      오르막 = (남은거리 + 높낮이 × 1.5) * 0.7<br>
-      내리막 = (남은거리 - 높낮이 × 2) * 0.7
+       ** 계산방법 **
+      #평지 = 남은거리 * 0.7<br>
+      #오르막 = (남은거리 + 높낮이 × 1.5) * 0.7<br>
+      #내리막 = (남은거리 - 높낮이 × 2) * 0.7
     </div>
   </div>
-
   <div class="result" id="result"></div>
 
-  <div class="made-by">Made by 존람. -v0.3</div>
+  <div class="made-by">Made by 존람. -v0.31</div>
 
  <script>
     const distanceSelect = document.getElementById("distanceSelect");
