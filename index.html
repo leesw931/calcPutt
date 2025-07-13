@@ -47,6 +47,15 @@
       border-radius: 6px;
       line-height: 1.8;
     }
+    .made-by {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +71,8 @@
   <button onclick="calculate()">계산하기</button>
 
   <div class="result" id="result"></div>
+
+  <div class="made-by">Made by 존람</div>
 
   <script>
     const distanceSelect = document.getElementById("distanceSelect");
