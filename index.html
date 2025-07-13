@@ -133,10 +133,10 @@
       const height = parseFloat(heightSelect.value);
       let resultHTML = "";
 
-      if (height == 0) {
+       if (height == 0) {
       const flat = (distance * 0.7).toFixed(2);
       resultHTML += `📏 평지: ${flat} m<br><br>`;
-      }
+       }
       
       if (height > 0) {
         const uphill = ((distance + height * 1.5) * 0.7).toFixed(2);
@@ -147,6 +147,11 @@
       }
 
       document.getElementById("result").innerHTML = resultHTML;
+    }
+
+    function toggleTooltip() {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.style.display = tooltip.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </body>
