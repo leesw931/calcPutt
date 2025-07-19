@@ -142,22 +142,25 @@
   <div class="made-by">Made by 존람. -v0.13</div>
 
  <script>
-    const distanceSelect = document.getElementById("distanceSelect");
-    for (let i = 0.0; i <= 30.0; i += 0.5) {
-      const option = document.createElement("option");
-      option.value = i.toFixed(1);
-      option.text = `${i.toFixed(1)} m`;
-      distanceSelect.appendChild(option);
-    }
+    // 거리: 0.0 ~ 30.0, 0.25 단위
+const distanceSelect = document.getElementById("distanceSelect");
+for (let i = 0.0; i <= 30.0; i += 0.25) {
+  const option = document.createElement("option");
+  option.value = i.toFixed(2);
+  option.text = `${i.toFixed(2)} m`;
+  distanceSelect.appendChild(option);
+}
 
-    const heightSelect = document.getElementById("heightSelect");
-    for (let i = 0.0; i <= 5.0; i += 0.1) {
-      const option = document.createElement("option");
-      option.value = i.toFixed(1);
-      option.text = `${i.toFixed(1)} m`;
-      heightSelect.appendChild(option);
-    }
+// 높낮이: 0.0 ~ 5.0, 0.05 단위
+const heightSelect = document.getElementById("heightSelect");
+for (let i = 0.0; i <= 5.0; i += 0.05) {
+  const option = document.createElement("option");
+  option.value = i.toFixed(2);
+  option.text = `${i.toFixed(2)} m`;
+  heightSelect.appendChild(option);
+}
 
+    
     function calculate() {
       const distance = parseFloat(distanceSelect.value);
       const height = parseFloat(heightSelect.value);
